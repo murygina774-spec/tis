@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Мой сайт про ботов</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Плавная прокрутка при нажатии на кнопку */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Стиль для кнопки-ссылки "Записаться" */
+        .btn-link {
+            display: inline-block;
+            text-decoration: none;
+            padding: 10px 25px;
+            background-color: #0088cc;
+            color: white;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn-link:hover {
+            background-color: #006699;
+        }
+
+        /* Стили для секции регистрации */
+        .registration-section {
+            padding: 60px 20px;
+            background-color: #000000;
+            text-align: center;
+        }
+
+        .registration-container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: rgb(21, 20, 20);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgb(7, 7, 7);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .reg-button {
+            width: 100%;
+            padding: 12px;
+            background-color:#0088cc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .reg-button:hover {
+            background-color: #2e6da1;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Обучение созданию чат-ботов на Python</h1>
+</header>
+
+<nav>
+    <a href="index.html">Главная (ЛК)</a>
+    <a href="lesson1.html">Урок 1</a>
+    <a href="lesson2.html">Урок 2</a>
+    <a href="lesson3.html">Урок 3</a>
+</nav>
+
+<section class="hero-theme">
+    <div class="container hero-layout">
+        <div class="hero-text">
+            <div class="badge">Бесплатный курс</div>
+            <h1>Основы Python: создаём телеграм-бота</h1>
+            <ul class="points">
+                <li>Начните изучать Python с нуля и попробуйте себя в роли разработчика</li>
+                <li>Выполните проект за несколько дней и добавьте его к портфолио</li>
+            </ul>
+            <div class="actions">
+                <!-- Ссылка на ID формы регистрации -->
+                <a href="#reg-form" class="btn-link">Записаться</a>
+                <button class="btn-secondary">❤</button>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <img src="d:\самира и таня\сайт4.png" alt="Telegram bot">
+        </div>
+    </div>
+</section>
+
+<section class="features-section">
+    <div class="container">
+        <h2 class="features-title">Этот курс для вас, если</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <img src="d:\самира и таня\сайт1.png" alt="Никогда не кодили">
+                </div>
+                <p>Никогда не кодили и хотите начать с чего-то нетрудного</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <img src="d:\самира и таня\сайт2.png" alt="Карьера в IT">
+                </div>
+                <p>Хотите начать карьеру в IT и пробуете разные направления</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <img src="d:\самира и таня\сайт3.png" alt="Новый навык">
+                </div>
+                <p>Хотите получить новый навык, необходимый в работе</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Секция с регистрацией -->
+<section id="reg-form" class="registration-section">
+    <div class="registration-container">
+        <h2>Регистрация на курс</h2>
+        <form>
+            <div class="form-group">
+                <label for="user-name">Ваше имя:</label>
+                <input type="text" id="user-name" placeholder="Введите имя" required>
+            </div>
+            <div class="form-group">
+                <label for="user-email">Email:</label>
+                <input type="email" id="user-email" placeholder="example@mail.com" required>
+            </div>
+            <button type="submit" class="reg-button">Зарегистрироваться</button>
+        </form>
+    </div>
+</section>
+
+</body>
+</html>

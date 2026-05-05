@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Урок 3 - Мгновенный тест</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f4f7f9; padding: 20px; }
+        .container { padding: 30px; }
+        
+        .question-block { 
+            margin-bottom: 20px; 
+            padding: 20px; 
+            border: 2px solid #edf2f7; 
+            border-radius: 12px; 
+            transition: all 0.3s ease;
+        }
+
+        .question-text { font-weight: 600; font-size: 1.1em; margin-bottom: 15px; display: block; }
+
+        .option { 
+            display: block; 
+            padding: 12px; 
+            margin: 8px 0; 
+            border: 1px solid #e2e8f0; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            transition: 0.2s;
+        }
+
+        .option:hover { background-color: #f8fafc; }
+
+        /* Состояния после проверки */
+        .correct { background-color: #c6f6d5 !important; border-color: #48bb78 !important; color: #22543d; font-weight: bold; }
+        .wrong { background-color: #fed7d7 !important; border-color: #f56565 !important; color: #742a2a; }
+        
+        /* Блокировка кликов после выбора */
+        .disabled { pointer-events: none; opacity: 0.8; }
+
+        .feedback-msg { font-weight: bold; margin-top: 10px; display: none; }
+        
+        nav { margin-bottom: 20px; text-align: center; }
+        nav a { margin: 0 10px; text-decoration: none; color: #000000; }
+    </style>
+</head>
+<body>
+
+    <header>
+    <h1>Урок 3: Тестирование</h1>
+</header>
+
+
+    <nav>
+        <a href="index.html">Главная</a>
+        <a href="lesson1.html">Урок 1</a>
+        <a href="lesson2.html">Урок 2</a>
+        <a href="lesson3.html">Урок 3</a>
+    </nav>
+<div class="container">
+    <h2 style="text-align: center; color: #2d3748;">Тест: Клавиатуры в Telegram</h2>
+
+    <!-- Вопрос 1 -->
+    <div class="question-block" id="q1">
+        <span class="question-text">1. Какой класс создает обычные кнопки под полем ввода?</span>
+        <label class="option"><input type="radio" name="q1" value="wrong" onchange="checkInstant(this, 'ReplyKeyboardMarkup')"> InlineKeyboardMarkup</label>
+        <label class="option"><input type="radio" name="q1" value="correct" onchange="checkInstant(this, 'ReplyKeyboardMarkup')"> ReplyKeyboardMarkup</label>
+        <label class="option"><input type="radio" name="q1" value="wrong" onchange="checkInstant(this, 'ReplyKeyboardMarkup')"> ReplyKeyboardRemove</label>
+        <div class="feedback-msg"></div>
+    </div>
+
+    <!-- Вопрос 2 -->
+    <div class="question-block" id="q2">
+        <span class="question-text">2. Параметр для адаптации размера кнопок под текст:</span>
+        <label class="option"><input type="radio" name="q2" value="wrong" onchange="checkInstant(this, 'resize_keyboard')"> fit_buttons=True</label>
+        <label class="option"><input type="radio" name="q2" value="correct" onchange="checkInstant(this, 'resize_keyboard')"> resize_keyboard=True</label>
+        <label class="option"><input type="radio" name="q2" value="wrong" onchange="checkInstant(this, 'resize_keyboard')"> auto_size=True</label>
+        <div class="feedback-msg"></div>
+    </div>
+
+    <!-- Вопрос 3 -->
+    <div class="question-block" id="q3">
+        <span class="question-text">3. Метод добавления кнопок в объект клавиатуры:</span>
+        <label class="option"><input type="radio" name="q3" value="correct" onchange="checkInstant(this, 'add()')"> add()</label>
+        <label class="option"><input type="radio" name="q3" value="wrong" onchange="checkInstant(this, 'add()')"> append()</label>
+        <label class="option"><input type="radio" name="q3" value="wrong" onchange="checkInstant(this, 'add()')"> push()</label>
+        <div class="feedback-msg"></div>
+    </div>
+
+    <!-- Вопрос 4 -->
+    <div class="question-block" id="q4">
+        <span class="question-text">4. Как называются кнопки, прикрепленные к сообщению?</span>
+        <label class="option"><input type="radio" name="q4" value="wrong" onchange="checkInstant(this, 'Inline')"> Reply</label>
+        <label class="option"><input type="radio" name="q4" value="correct" onchange="checkInstant(this, 'Inline')"> Inline</label>
+        <label class="option"><input type="radio" name="q4" value="wrong" onchange="checkInstant(this, 'Inline')"> MessageButton</label>
+        <div class="feedback-msg"></div>
+    </div>
+
+    <!-- Вопрос 5 -->
+    <div class="question-block" id="q5">
+        <span class="question-text">5. В какой параметр метода message.answer передается клавиатура?</span>
+        <label class="option"><input type="radio" name="q5" value="wrong" onchange="checkInstant(this, 'reply_markup')"> keyboard</label>
+        <label class="option"><input type="radio" name="q5" value="wrong" onchange="checkInstant(this, 'reply_markup')"> markup</label>
+        <label class="option"><input type="radio" name="q5" value="correct" onchange="checkInstant(this, 'reply_markup')"> reply_markup</label>
+        <div class="feedback-msg"></div>
+    </div>
+
+    <div style="text-align: center; margin-top: 20px;">
+        <button onclick="location.reload()" style="padding: 10px 20px; border-radius: 8px; border: 1px solid #ccc; cursor: pointer; background: #fff;">Пройти заново</button>
+    </div>
+</div>
+
+<script>
+function checkInstant(element, correctAnswerName) {
+    const parentBlock = element.closest('.question-block');
+    const feedback = parentBlock.querySelector('.feedback-msg');
+    
+    // Блокируем блок от повторных нажатий
+    parentBlock.classList.add('disabled');
+    
+    feedback.style.display = "block";
+
+    if (element.value === 'correct') {
+        element.parentElement.classList.add('correct');
+        feedback.innerHTML = "Верно!";
+        feedback.style.color = "#2f855a";
+    } else {
+        element.parentElement.classList.add('wrong');
+        feedback.innerHTML = `Ошибка. Правильный ответ: ${correctAnswerName}`;
+        feedback.style.color = "#c53030";
+        
+        // Подсвечиваем правильный вариант, чтобы ученик запомнил
+        const options = parentBlock.querySelectorAll('.option');
+        options.forEach(opt => {
+            if (opt.querySelector('input').value === 'correct') {
+                opt.classList.add('correct');
+            }
+        });
+    }
+}
+</script>
+
+</body>
+</html>

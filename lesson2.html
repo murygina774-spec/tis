@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Урок 2 - Инструкция по созданию бота</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; }
+        .container { padding: 20px; }
+        
+        .guide-section { background: white; padding: 10px; border-radius: 15px; margin-bottom: 30px; }
+        .guide-section h2 { color: #000000; padding-bottom: 10px;}
+        
+        .step-card { margin-bottom: 25px; padding: 20px; border: 1px solid #eef2f3; border-radius: 10px; background: #fdfdfd; }
+        .step-header { display: flex; align-items: center; margin-bottom: 15px; }
+        
+        code { background: #f1f1f1; padding: 3px 6px; border-radius: 4px; font-family: 'Courier New', Courier, monospace; color: #d63384; }
+        pre { background: #2d2d2d; color: #ccc; padding: 15px; border-radius: 8px; overflow-x: auto; font-family: 'Courier New', Courier, monospace; }
+        
+        .important-note { background: #29cdff; padding: 15px; margin: 20px 0; border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Урок 2: Пошаговое создание Telegram-бота</h1>
+</header>
+
+<nav>
+    <a href="index.html">Главная (ЛК)</a>
+    <a href="lesson1.html">Урок 1</a>
+    <a href="lesson2.html">Урок 2</a>
+    <a href="lesson3.html">Урок 3</a>
+</nav>
+
+<div class="container">
+    <section class="guide-section">
+        <center><h2>Развернутая инструкция</h2></center>
+        
+        <p>В этом уроке мы разберем процесс разработки — от получения "ключей" до запуска первого кода на вашем компьютере.</p>
+
+        <!-- Шаг 1 -->
+        <div class="step-card">
+            <div class="step-header">
+                <h3>Регистрация бота в BotFather</h3>
+            </div>
+            <p>Чтобы ваш бот появился в Telegram, его нужно зарегистрировать через официального "отца ботов":</p>
+            <ul>
+                <li>Найдите в поиске <strong>@BotFather</strong> и нажмите <code>/start</code>.</li>
+                <li>Отправьте команду <code>/newbot</code>.</li>
+                <li>Придумайте название (имя, которое видят все) и <strong>username</strong> (уникальный адрес, заканчивающийся на _bot).</li>
+                <li>После этого вы получите <strong>API TOKEN</strong> — это секретный ключ. Сохраните его.</li>
+            </ul>
+        </div>
+
+        <!-- Шаг 2 -->
+        <div class="step-card">
+            <div class="step-header">
+              
+                <h3>Подготовка рабочего места</h3>
+            </div>
+            <p>Вам понадобится установленный Python. Откройте терминал (командную строку) и установите библиотеку <strong>aiogram</strong>, которая упрощает работу с API Telegram:</p>
+            <code>pip install aiogram</code>
+        </div>
+
+        <!-- Шаг 3 -->
+        <div class="step-card">
+            <div class="step-header">
+               
+                <h3>Написание базового кода</h3>
+            </div>
+            <p>Создайте файл <code>main.py</code> и вставьте в него стандартный шаблон. Этот код заставит бота отвечать "Привет!" на любое текстовое сообщение.</p>
+            <pre>
+from aiogram import Bot, Dispatcher, executor, types
+
+# Вставьте сюда свой токен от BotFather
+API_TOKEN = 'ВАШ_ТОКЕН_ЗДЕСЬ'
+
+bot = Bot(token=API_TOKEN)
+dp = Dispatcher(bot)
+
+# Обработчик любых текстовых сообщений
+@dp.message_handler()
+async def echo_message(message: types.Message):
+    await message.answer("Привет! Я твой первый бот.")
+
+if __name__ == '__main__':
+    executor.start_polling(dp, skip_updates=True)
+            </pre>
+        </div>
+
+        <!-- Шаг 4 -->
+        <div class="step-card">
+            <div class="step-header">
+               
+                <h3>Запуск и проверка</h3>
+            </div>
+            <p>Запустите ваш скрипт через редактор кода или командой в терминале:</p>
+            <code>python main.py</code>
+            <p>Теперь зайдите в Telegram к вашему боту и напишите ему любое сообщение. Он должен мгновенно ответить!</p>
+        </div>
+
+        <div class="important-note">
+            <strong>Важно:</strong> Никогда не передавайте свой API TOKEN посторонним лицам и не выкладывайте его в открытый доступ, иначе любой сможет управлять вашим ботом.
+        </div>
+    </section>
+</div>
+
+</body>
+</html>

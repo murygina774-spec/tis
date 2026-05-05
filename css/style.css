@@ -1,0 +1,228 @@
+/* Подключаем шрифты */
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@700&display=swap');
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #f4f4f4; /* Серый фон */
+    color: #333; /* Темно-серый текст */
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #7ed6f3; /* Светло-синий */
+    padding: 20px;
+    text-align: center;
+}
+
+h1, h2 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+nav {
+    background-color: #d3d2d2;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: rgb(0, 0, 0);
+    margin: 0 15px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+.exercise-box {
+    border: 1px solid #9fe3f9;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #fafafa;
+}
+
+input[type="text"], input[type="password"] {
+    padding: 8px;
+    width: 250px;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #00bfff;
+    border: 1px solid #333;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #00c3ff;
+}
+
+.result-ok { color: green; font-weight: bold; }
+.result-bad { color: red; }
+
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.8em;
+}
+
+
+/* Убираем рамки и фоны для элементов списка */
+.feature-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;      /* Небольшой отступ для текста */
+    background: none;   /* Убираем фоновый цвет */
+    border: none;       /* Явно убираем рамку */
+}
+
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+.feature-icon img {
+    width: 100%;
+    height: auto;
+    border: none;       /* Убираем рамку непосредственно у самой картинки */
+    outline: none;
+}
+
+/* Настройка сетки */
+.features-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+
+
+/* Специальный фон для главного экрана */
+.hero-theme {
+    background-color: #0c141d; /* Темный цвет со скрина */
+    padding: 40px 0;
+    color: white;
+}
+
+/* Настройка вашего стандартного контейнера под темную тему */
+.hero-layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: transparent !important; /* Убираем белый фон */
+    border: none !important; /* Убираем рамку */
+    width: 85%;
+}
+
+/* Заголовок (использует ваш Montserrat) */
+.hero-text h1 {
+    font-size: 3rem;
+    margin: 20px 0;
+    color: white;
+}
+
+/* Список (использует ваш Lato) */
+.points {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.points li {
+    margin-bottom: 15px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.points li::before {
+    content: "•";
+    color: #7ed6f3; /* Ваш светло-синий цвет */
+    position: absolute;
+    left: 0;
+}
+
+/* Кнопки (используют ваши стили для button) */
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.actions button {
+    padding: 15px 35px;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.btn-secondary {
+    background-color: #1a242f !important;
+    color: white !important;
+}
+
+/* Плашка рейтинга */
+.rating-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #333;
+    margin-top: -50px;
+    position: relative;
+    max-width: 180px;
+}
+
+.stars {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.rating-card p {
+    font-size: 0.7rem;
+    margin: 5px 0 0;
+    color: #999;
+}
+
+/* Адаптация под мобильные */
+@media (max-width: 768px) {
+    .hero-layout {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-image {
+        margin-top: 40px;
+    }
+}
+.btn-primary {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0088cc; /* Цвет как у Telegram */
+    color: white;
+    text-decoration: none; /* Убираем подчеркивание ссылки */
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Для плавного скролла добавьте это в начало CSS файла */
+html {
+    scroll-behavior: smooth;
+}
+
+
+
+
+
+
+
